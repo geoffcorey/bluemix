@@ -37,10 +37,9 @@ var getAccessToken = function (query) {
         params: {
           code: query.code,
           client_id: config.clientId,
-          scope: 'openid,cloud_controller.read',
           client_secret: OAuth.openSecret(config.secret),
           redirect_uri: OAuth._redirectUri('bluemix', config),
-          grant_type: 'code',
+          grant_type: 'authorization_code',
           state: query.state
         }
       });

@@ -40,7 +40,7 @@ var getAccessToken = function (query) {
           scope: 'openid,cloud_controller.read',
           client_secret: OAuth.openSecret(config.secret),
           redirect_uri: OAuth._redirectUri('bluemix', config),
-          grant_type: 'token',
+          grant_type: 'code',
           state: query.state
         }
       });

@@ -20,15 +20,15 @@ Bluemix.requestCredential = function (options, credentialRequestCompleteCallback
   }
   var credentialToken = Random.secret();
 
-  var scope = (options && options.requestPermissions) || ['profile'];
+  var scope = (options && options.requestPermissions) || ['openid,cloud_controller.read'];
   var flatScope = _.map(scope, encodeURIComponent).join('+');
 
   var loginStyle = OAuth._loginStyle('bluemix', config, options);
 
   var loginUrl =
-    'http://api.eu-gb.bluemix.net/info' +
+    'https://login.eu-gb.bluemix.net/UAALoginServerWAR/oauth/authorize' +
     '?client_id=' + config.clientId +
-    '&scope=openid,cloud_controller.read,' + flatScope +
+    '&scope=' + flatScope +
     '&redirect_uri=' + OAuth._redirectUri('bluemix', config) +
     '&response_type=code' +
     '&state=' + OAuth._stateParam(loginStyle, credentialToken);

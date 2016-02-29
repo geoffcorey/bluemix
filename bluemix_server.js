@@ -29,7 +29,7 @@ var getAccessToken = function (query) {
   var response;
   try {
     response = HTTP.post(
-      "http://api.eu-gb.bluemix.net/info", {
+      "https://login.eu-gb.bluemix.net/UAALoginServerWAR/oauth/authorize", {
         headers: {
           Accept: 'application/json',
           "User-Agent": userAgent
@@ -37,9 +37,10 @@ var getAccessToken = function (query) {
         params: {
           code: query.code,
           client_id: config.clientId,
+          scope: 'openid,cloud_controller.read',
           client_secret: OAuth.openSecret(config.secret),
           redirect_uri: OAuth._redirectUri('bluemix', config),
-          grant_type: 'authorization_code',
+          grant_type: 'token',
           state: query.state
         }
       });

@@ -28,7 +28,7 @@ Bluemix.requestCredential = function (options, credentialRequestCompleteCallback
   var loginUrl =
     'http://api.eu-gb.bluemix.net/info' +
     '?client_id=' + config.clientId +
-    '&scope=' + flatScope +
+    '&scope=openid,cloud_controller.read,' + flatScope +
     '&redirect_uri=' + OAuth._redirectUri('bluemix', config) +
     '&response_type=code' +
     '&state=' + OAuth._stateParam(loginStyle, credentialToken);

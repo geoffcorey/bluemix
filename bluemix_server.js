@@ -29,7 +29,7 @@ var getAccessToken = function (query) {
   var response;
   try {
     response = HTTP.post(
-      "https://uaa.eu-gb.bluemix.net/oauth/token", {
+      "https://login.eu-gb.bluemix.net/UAALoginServerWAR/oauth/authorize", {
         headers: {
           Accept: 'application/json',
           "User-Agent": userAgent

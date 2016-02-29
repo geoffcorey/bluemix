@@ -26,7 +26,7 @@ var getAccessToken = function (query) {
   if (!config)
     throw new ServiceConfiguration.ConfigError();
 
-  var basicAuth = 'Basic ' + new Buffer(options.clientID + ':' + options.clientSecret).toString('base64');
+  var basicAuth = 'Basic ' + new Buffer(config.clientId + ':' + config.secret).toString('base64');
 
   var response;
   try {

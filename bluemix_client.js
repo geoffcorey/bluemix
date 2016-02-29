@@ -20,7 +20,7 @@ Bluemix.requestCredential = function (options, credentialRequestCompleteCallback
   }
   var credentialToken = Random.secret();
 
-  var scope = (options && options.requestPermissions) || ['openid,cloud_controller.read'];
+  var scope = (options && options.requestPermissions) || ['openid'];
   var flatScope = _.map(scope, encodeURIComponent).join('+');
 
   var loginStyle = OAuth._loginStyle('bluemix', config, options);

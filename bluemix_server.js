@@ -29,7 +29,7 @@ var getAccessToken = function (query) {
   var response;
   try {
     response = HTTP.post(
-      "https://login.eu-gb.bluemix.net/UAALoginServerWAR/oauth/authorize", {
+      "https://uaa.eu-gb.bluemix.net/oauth/token", {
         headers: {
           Accept: 'application/json',
           "User-Agent": userAgent
@@ -57,7 +57,7 @@ var getAccessToken = function (query) {
 
 var getIdentity = function (accessToken) {
   try {
-    var url = "https://idaas.ng.bluemix.net/idaas/resources/profile.jsp?access_token=" + accessToken;
+    var url = "https://uaa.eu-gb.bluemix.net/userinfo?access_token=" + accessToken;
     return JSON.parse(HTTP.get(url).content);
   } catch (err) {
     throw _.extend(new Error("Failed to fetch identity from Bluemix. " + err.message),

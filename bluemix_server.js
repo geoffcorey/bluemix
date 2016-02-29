@@ -29,7 +29,7 @@ var getAccessToken = function (query) {
   var response;
   try {
     response = HTTP.post(
-      "https://idaas.ng.bluemix.net/sps/oauth20sp/oauth20/token", {
+      "http://api.eu-gb.bluemix.net/info", {
         headers: {
           Accept: 'application/json',
           "User-Agent": userAgent

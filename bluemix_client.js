@@ -26,7 +26,7 @@ Bluemix.requestCredential = function (options, credentialRequestCompleteCallback
   var loginStyle = OAuth._loginStyle('bluemix', config, options);
 
   var loginUrl =
-    'https://idaas.ng.bluemix.net/sps/oauth20sp/oauth20/authorize' +
+    'http://api.eu-gb.bluemix.net/info' +
     '?client_id=' + config.clientId +
     '&scope=' + flatScope +
     '&redirect_uri=' + OAuth._redirectUri('bluemix', config) +

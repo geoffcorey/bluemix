@@ -26,13 +26,16 @@ var getAccessToken = function (query) {
   if (!config)
     throw new ServiceConfiguration.ConfigError();
 
+  var basicAuth = 'Basic ' + new Buffer(options.clientID + ':' + options.clientSecret).toString('base64');
+
   var response;
   try {
     response = HTTP.post(
       "https://uaa.eu-gb.bluemix.net/oauth/token", {
         headers: {
           Accept: 'application/json',
-          "User-Agent": userAgent
+          "User-Agent": userAgent,
+          Authorization: basicAuth
         },
         params: {
           code: query.code,

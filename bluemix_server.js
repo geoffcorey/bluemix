@@ -12,7 +12,8 @@ OAuth.registerService('bluemix', 2, null, function(query) {
       email: identity.email || '',
       username: identity.username,
     },
-    options: {profile: {name: identity.name}}
+    //options: {profile: {name: identity.name}}
+    options: { profile: identity }}
   };
 });
 

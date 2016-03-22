@@ -24,12 +24,13 @@ Bluemix.requestCredential = function (options, credentialRequestCompleteCallback
   var flatScope = _.map(scope, encodeURIComponent).join('+');
 
   var loginStyle = OAuth._loginStyle('bluemix', config, options);
+  var redirectUri = OAuth._redirectUri('bluemix', config, options);
 
   var loginUrl =
     'https://login.eu-gb.bluemix.net/UAALoginServerWAR/oauth/authorize' +
     '?client_id=' + config.clientId +
     '&scope=' + flatScope +
-    '&redirect_uri=' + OAuth._redirectUri('bluemix', config) +
+    '&redirect_uri=' + redirectUri +
     '&response_type=code' +
     '&state=' + OAuth._stateParam(loginStyle, credentialToken);
 

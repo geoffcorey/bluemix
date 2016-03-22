@@ -28,6 +28,7 @@ var getAccessToken = function (query) {
     throw new ServiceConfiguration.ConfigError();
 
   var basicAuth = 'Basic ' + new Buffer(config.clientId + ':' + config.secret).toString('base64');
+  var redirectUri = config.redirectUri || OAuth._redirectUri('bluemix', config);
 
   var response;
   try {
@@ -42,7 +43,7 @@ var getAccessToken = function (query) {
           code: query.code,
           client_id: config.clientId,
           client_secret: OAuth.openSecret(config.secret),
-          redirect_uri: OAuth._redirectUri('bluemix', config),
+          redirect_uri: redirectUri,
           grant_type: 'authorization_code',
           state: query.state
         }

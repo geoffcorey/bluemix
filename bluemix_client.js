@@ -24,7 +24,7 @@ Bluemix.requestCredential = function (options, credentialRequestCompleteCallback
   var flatScope = _.map(scope, encodeURIComponent).join('+');
 
   var loginStyle = OAuth._loginStyle('bluemix', config, options);
-  var redirectUri = OAuth._redirectUri('bluemix', config, options);
+  var redirectUri = config.redirectUri || OAuth._redirectUri('bluemix', config);
 
   console.log('redirectUri',redirectUri)
   var loginUrl =

@@ -1,6 +1,6 @@
 Package.describe({
   name: 'kizimo:bluemix',
-  version: '1.0.10',
+  version: '1.0.11',
   summary: 'IBM Bluemix OAuth flow',
   git: 'https://github.com/kizimo/bluemix.git',
   documentation: 'README.md'

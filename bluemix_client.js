@@ -26,6 +26,7 @@ Bluemix.requestCredential = function (options, credentialRequestCompleteCallback
   var loginStyle = OAuth._loginStyle('bluemix', config, options);
   var redirectUri = OAuth._redirectUri('bluemix', config, options);
 
+  console.log('redirectUri',redirectUri)
   var loginUrl =
     'https://login.eu-gb.bluemix.net/UAALoginServerWAR/oauth/authorize' +
     '?client_id=' + config.clientId +

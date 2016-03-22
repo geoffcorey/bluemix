@@ -11,8 +11,9 @@ OAuth.registerService('bluemix', 2, null, function(query) {
       accessToken: OAuth.sealSecret(accessToken),
       email: identity.email || '',
       username: identity.username,
+      bmprofile: identity,
     },
-    options: { profile: identity }} //options: {profile: {name: identity.name}}
+    options: {profile: {name: identity.name}}
   };
 });
 

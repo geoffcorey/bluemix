@@ -55,6 +55,7 @@ var getAccessToken = function (query) {
   if (response.data.error) { // if the http response was a json object with an error attribute
     throw new Error("Failed to complete OAuth handshake with Bluemix. " + response.data.error);
   } else {
+    console.log(JSON.stringify(response.data, null, 4));
     return response.data.access_token;
   }
 };
